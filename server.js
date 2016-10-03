@@ -1,5 +1,5 @@
-var express = require('express');
-var morgan = require('morgan');
+var express = require('express');//create
+var morgan = require('morgan');//output logs
 var path = require('path');
 
 var app = express();
@@ -7,6 +7,18 @@ app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/articleone',function (req,res){
+    res.send('articleone requested and will be served here');
+});
+
+app.get('/articletwo',function (req,res){
+    res.send('articletwo requested and will be served here');
+});
+
+app.get('/articlethree',function (req,res){
+    res.send('articlethree requested and will be served here');
 });
 
 app.get('/ui/style.css', function (req, res) {
